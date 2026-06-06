@@ -1,0 +1,13 @@
+# Editor swap / temp files
+*.sw[a-p]
+.*.sw[a-p]
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
