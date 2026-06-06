@@ -1,0 +1,67 @@
+{
+  "name": "ai-writing-signals-review",
+  "version": "1.2.0",
+  "description": "A portable, model-agnostic editorial quality skill with two modes: Safe Review Mode (assess text for AI-like signals as indicators for human review, never proof of authorship) and Prose Cleanup Mode (tighten your own draft for clarity, specificity, and rhythm).",
+  "model_compatibility": [
+    "Claude",
+    "ChatGPT",
+    "Gemini",
+    "DeepSeek",
+    "local LLMs"
+  ],
+  "default_mode": "safe_review",
+  "mode_order": [
+    "safe_review",
+    "prose_cleanup"
+  ],
+  "modes": {
+    "safe_review": {
+      "purpose": "Assess text you may not edit; produce a three-bucket report with false-positive warnings.",
+      "files": [
+        "prompts/ai-writing-review.md",
+        "rubrics/signal-taxonomy.json",
+        "rubrics/scoring-rubric.md"
+      ]
+    },
+    "prose_cleanup": {
+      "purpose": "Tighten your own draft before publishing; improve clarity, specificity, and rhythm.",
+      "files": [
+        "prompts/prepublish-quality-check.md",
+        "rubrics/style-pattern-watchlist.json",
+        "rubrics/prose-quality-rubric.md",
+        "examples/before-after-revisions.md"
+      ]
+    }
+  },
+  "source": {
+    "title": "Wikipedia:Signs of AI writing",
+    "url": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing",
+    "license": "CC BY-SA 4.0",
+    "attribution_required": true
+  },
+  "additional_sources": [
+    {
+      "title": "Stop Slop",
+      "author": "Hardik Pandya",
+      "url": "https://github.com/hardikpandya/stop-slop",
+      "license": "MIT",
+      "used_for": "Prose Cleanup Mode ideas, reworded and reframed with safer, non-absolutist framing.",
+      "attribution_required": true
+    }
+  ],
+  "outputs": [
+    "overall_assessment",
+    "ai_like_signals",
+    "quality_problems",
+    "source_grounding_problems",
+    "signs_of_human_writing",
+    "rewrite_guidance",
+    "safety_caveat"
+  ],
+  "safety": {
+    "not_an_ai_detector": true,
+    "no_authorship_certainty": true,
+    "requires_false_positive_warnings": true,
+    "refuses_detection_evasion": true
+  }
+}

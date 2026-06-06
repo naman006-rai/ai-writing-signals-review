@@ -1,0 +1,155 @@
+{
+  "name": "Prose Style Pattern Watchlist",
+  "version": "1.0.0",
+  "purpose": "A machine-readable watchlist of generic prose patterns for Prose Cleanup Mode. These are patterns to check for OVERUSE, not banned constructions. None of them prove AI authorship, and each has legitimate human uses. Reduce them when they weaken a specific sentence; keep them when they serve the writing.",
+  "safety_note": "This is not an AI detector and not proof of AI authorship. Do not use it to evade detection. Improve clarity and accountability, never deception. Preserve meaning and facts; never fabricate specifics to 'fix' a pattern.",
+  "allowed_values": {
+    "severity_default": ["low", "medium", "high"]
+  },
+  "sources": [
+    {
+      "title": "Stop Slop",
+      "author": "Hardik Pandya",
+      "url": "https://github.com/hardikpandya/stop-slop",
+      "license": "MIT",
+      "adaptation_note": "Pattern ideas adapted and reworded with safer, non-absolutist framing and false-positive notes."
+    },
+    {
+      "title": "Wikipedia:Signs of AI writing",
+      "url": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "patterns": [
+    {
+      "id": "throat_clearing_opener",
+      "category": "directness",
+      "pattern_name": "Throat-clearing openers",
+      "examples": ["here's the thing", "the truth is", "let me be clear", "it turns out", "here's what I find interesting"],
+      "why_generic": "Announces that a point is coming instead of making it, delaying the reader.",
+      "safer_alternative": "Delete the opener and lead with the actual claim.",
+      "false_positive_note": "Conversational and spoken-style pieces sometimes use these deliberately for voice.",
+      "severity_default": "low"
+    },
+    {
+      "id": "emphasis_crutch",
+      "category": "directness",
+      "pattern_name": "Emphasis crutches",
+      "examples": ["full stop.", "let that sink in.", "make no mistake", "this matters because", "period."],
+      "why_generic": "Tells the reader something is important rather than showing why.",
+      "safer_alternative": "Cut the crutch; let the substance carry the emphasis.",
+      "false_positive_note": "Rhetorical and persuasive writing may use one sparingly for genuine effect.",
+      "severity_default": "low"
+    },
+    {
+      "id": "business_jargon",
+      "category": "specificity",
+      "pattern_name": "Business jargon",
+      "examples": ["leverage", "navigate the challenges", "deep dive", "circle back", "move the needle", "game-changer"],
+      "why_generic": "Obscures plain meaning behind interchangeable corporate vocabulary.",
+      "safer_alternative": "Use the plain word: 'use', 'handle', 'analysis', 'revisit'.",
+      "false_positive_note": "Some terms are precise in their native domain (e.g., 'leverage' in finance).",
+      "severity_default": "low"
+    },
+    {
+      "id": "vague_declarative",
+      "category": "specificity",
+      "pattern_name": "Vague declaratives",
+      "examples": ["the reasons are structural", "the implications are significant", "the stakes are high"],
+      "why_generic": "Asserts importance without naming the specific thing that is important.",
+      "safer_alternative": "Name the specific reason, implication, or stake — with a source if it is a factual claim.",
+      "false_positive_note": "A summary line can be acceptable when the specifics are given right after.",
+      "severity_default": "medium"
+    },
+    {
+      "id": "empty_intensifier",
+      "category": "density",
+      "pattern_name": "Empty intensifiers and filler adverbs",
+      "examples": ["really", "just", "literally", "genuinely", "simply", "actually", "very"],
+      "why_generic": "Adds emphasis without adding meaning; dilutes the sentence.",
+      "safer_alternative": "Reduce overuse; keep an adverb only where it changes the meaning.",
+      "false_positive_note": "Adverbs are normal, useful words. This is about overuse, not elimination — do not strip every -ly word.",
+      "severity_default": "low"
+    },
+    {
+      "id": "meta_commentary",
+      "category": "directness",
+      "pattern_name": "Self-referential meta-commentary",
+      "examples": ["in this section we'll", "the rest of this essay explains", "let me walk you through", "as we'll see"],
+      "why_generic": "Narrates the structure instead of letting the writing move.",
+      "safer_alternative": "Delete the aside and proceed directly to the content.",
+      "false_positive_note": "Textbooks, tutorials, and academic abstracts legitimately signpost structure.",
+      "severity_default": "low"
+    },
+    {
+      "id": "binary_contrast",
+      "category": "structure",
+      "pattern_name": "Formulaic binary contrast",
+      "examples": ["not X, it's Y", "the answer isn't X, it's Y", "it's not this, it's that"],
+      "why_generic": "A telegraphed reversal that adds drama but not information.",
+      "safer_alternative": "State Y directly and drop the negation.",
+      "false_positive_note": "A genuine contrast that corrects a real misconception is fine.",
+      "severity_default": "low"
+    },
+    {
+      "id": "negative_listing",
+      "category": "structure",
+      "pattern_name": "Negative listing",
+      "examples": ["not a X. not a Y. a Z.", "it wasn't X. it wasn't Y. it was Z."],
+      "why_generic": "Builds suspense through negation before stating the point.",
+      "safer_alternative": "State what it is; skip the runway of what it is not.",
+      "false_positive_note": "Occasionally effective in narrative or speech writing.",
+      "severity_default": "low"
+    },
+    {
+      "id": "dramatic_fragmentation",
+      "category": "rhythm",
+      "pattern_name": "Dramatic fragmentation",
+      "examples": ["That's it. That's the point.", "X. And Y. And Z.", "This changes everything. Everything."],
+      "why_generic": "Sentence fragments stacked for manufactured profundity.",
+      "safer_alternative": "Use complete sentences; vary length so emphasis lands naturally.",
+      "false_positive_note": "Sparing fragments are a legitimate stylistic device.",
+      "severity_default": "low"
+    },
+    {
+      "id": "rhetorical_setup",
+      "category": "directness",
+      "pattern_name": "Rhetorical setups",
+      "examples": ["what if I told you", "here's what I mean:", "think about it:", "and that's okay."],
+      "why_generic": "Announces insight or grants permission instead of delivering the point.",
+      "safer_alternative": "Make the point and let readers draw their own conclusion.",
+      "false_positive_note": "A single rhetorical question can work in persuasive or teaching contexts.",
+      "severity_default": "low"
+    },
+    {
+      "id": "false_agency",
+      "category": "specificity",
+      "pattern_name": "False agency (inanimate actors)",
+      "examples": ["the complaint becomes a fix", "the decision emerges", "the data tells us", "the market rewards"],
+      "why_generic": "Gives abstractions human verbs, hiding who actually acted.",
+      "safer_alternative": "Name the person or group who did it, or use 'you' to put the reader in the seat.",
+      "false_positive_note": "Some idioms ('the data shows') are accepted shorthand in technical writing.",
+      "severity_default": "medium"
+    },
+    {
+      "id": "narrator_from_distance",
+      "category": "reader_trust",
+      "pattern_name": "Narrator-from-a-distance voice",
+      "examples": ["nobody designed this", "people tend to", "this is why"],
+      "why_generic": "Floats above the subject instead of grounding it in concrete actors or examples.",
+      "safer_alternative": "Put the reader in the scene or cite a specific case.",
+      "false_positive_note": "Generalization is appropriate in genuinely general claims, when sourced.",
+      "severity_default": "low"
+    },
+    {
+      "id": "passive_actor_hiding",
+      "category": "specificity",
+      "pattern_name": "Actor-hiding passive voice",
+      "examples": ["mistakes were made", "it is believed that", "the decision was reached"],
+      "why_generic": "Passive voice that conceals who did something, draining accountability.",
+      "safer_alternative": "Name the actor and put them at the front of the sentence.",
+      "false_positive_note": "Passive voice is correct when the actor is unknown, irrelevant, or the object is the real topic (common in science writing).",
+      "severity_default": "low"
+    }
+  ]
+}
