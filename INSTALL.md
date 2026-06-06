@@ -36,8 +36,8 @@ Set `output_format: json` instead if you want machine-readable output. Use `prom
 Cloning gives you every prompt, rubric, and example locally.
 
 ```bash
-git clone <repo-url> ai-writing-signals-skill
-cd ai-writing-signals-skill
+git clone https://github.com/naman006-rai/ai-writing-signals-review.git
+cd ai-writing-signals-review
 ```
 
 Then open whichever prompt you need and follow Option 1. To confirm the package is intact:
