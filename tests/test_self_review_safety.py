@@ -181,3 +181,51 @@ def test_hard_evasion_slogans_absent_from_human_facing_markdown():
             if slogan in low:
                 offenders.append(f"{relative}: {slogan!r}")
     assert not offenders, "banned evasion slogan present: " + ", ".join(offenders)
+
+
+# Prompts that accept an external request and can produce or offer rewritten text.
+# The QA pass caught two fabrication regressions in this path: a rewrite that
+# swapped an unsupported "experts" for an invented "commentators", and an
+# evasion-refusal whose offered alternative invented "community learning
+# programs". These contract tests guard the instruction that prevents both.
+# (They assert the rule exists in the prompt, not live model output — the prompt
+# is the only deterministic surface; a model harness is out of scope.)
+REWRITE_PROMPT = "prompts/ai-writing-rewrite.md"
+REFUSAL_OFFER_PROMPTS = [
+    "prompts/ai-writing-review.md",
+    "prompts/ai-writing-rewrite.md",
+    "prompts/prepublish-quality-check.md",
+]
+
+
+def test_rewrite_prompt_forbids_substituting_unsupported_attributions():
+    # Regression: rewrite turned "experts" into "commentators".
+    low = read(REWRITE_PROMPT).lower()
+    assert "do not substitute one unsupported attribution" in low, (
+        "rewrite prompt must forbid swapping one unsupported attribution for another"
+    )
+    assert "commentators" in low, (
+        "rewrite prompt should name the 'commentators' substitution as the worked example"
+    )
+
+
+def test_rewrite_prompt_forbids_inventing_actors_and_specifics():
+    # Regression: invented actors and concrete specifics not present in the source.
+    low = read(REWRITE_PROMPT).lower()
+    assert "actors" in low, "rewrite no-invent rule must cover invented actors/attributions"
+    for specific in ["program names", "place names", "activities"]:
+        assert specific in low, (
+            f"rewrite no-invent rule must cover invented concrete specifics ({specific!r})"
+        )
+
+
+def test_evasion_refusal_offers_forbid_invented_specifics():
+    # Regression: the alternative offered after refusing evasion invented a
+    # concrete detail ("community learning programs"). Every prompt that may
+    # offer an alternative must require placeholders over invented specifics.
+    for relative in REFUSAL_OFFER_PROMPTS:
+        low = read(relative).lower()
+        assert "bracketed placeholder" in low, (
+            f"{relative} must require bracketed placeholders instead of invented specifics "
+            "in any offered alternative"
+        )

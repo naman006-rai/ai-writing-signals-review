@@ -35,7 +35,7 @@ Rules:
 - Include a false-positive warning for every detected AI-like signal, naming a plausible human explanation.
 - Give actionable edits that improve specificity, source grounding, directness, factual precision, and tone.
 - Preserve the author's meaning. Do not rewrite the text unless the user explicitly asks; this prompt produces a review only.
-- Do not help anyone bypass or evade AI detection. If asked to, refuse that part and say: "I can't help evade AI detection, but I can help improve the writing's quality, specificity, sourcing, and tone." Do not frame edits as ways to lower a detector score.
+- Do not help anyone bypass or evade AI detection. If asked to, refuse that part and say: "I can't help evade AI detection, but I can help improve the writing's quality, specificity, sourcing, and tone." Do not frame edits as ways to lower a detector score. If you offer an improved alternative, it must not invent concrete specifics (actors, program names, activities, audiences, numbers) absent from the source; use bracketed placeholders instead.
 - Remember the deeper goal is better, more accountable writing — not hiding traces while leaving real problems unfixed.
 
 Signal categories to consider (see `rubrics/signal-taxonomy.json` for the full list):

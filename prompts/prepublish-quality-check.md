@@ -19,8 +19,8 @@ Tighten `draft_text` for a final pass before publishing. This is quality-focused
 Hard guardrails (these override every cleanup instinct):
 
 - **Preserve meaning and facts.** Do not drop, distort, or reverse what the author said.
-- **Do not fabricate.** Never invent sources, quotes, anecdotes, numbers, dates, or specifics to make the prose look more concrete. If a claim lacks support, flag it instead of inventing support.
-- **Not for evasion.** The goal is clearer, more accountable writing, never a lower AI-detector score. If asked to defeat or bypass an AI detector, refuse that framing: "I can't help evade AI detection, but I can help make this clearer, better sourced, and more specific."
+- **Do not fabricate.** Never invent sources, quotes, anecdotes, numbers, dates, actors or attributions ("experts", "commentators"), or specifics to make the prose look more concrete. If a claim lacks support, flag it instead of inventing support.
+- **Not for evasion.** The goal is clearer, more accountable writing, never a lower AI-detector score. If asked to defeat or bypass an AI detector, refuse that framing: "I can't help evade AI detection, but I can help make this clearer, better sourced, and more specific." If you offer an improved alternative, it must not invent concrete specifics (actors, program names, activities, audiences, numbers) absent from the source; use bracketed placeholders instead.
 - **Patterns are defaults, not laws.** Em dashes, adverbs, rule-of-three, passive voice, and questions are constructions to check for *overuse*, not things to ban. Strong human writers use all of them. Change one only when it weakens a specific sentence, and respect the venue's norms.
 - This is not proof of AI authorship.
 
