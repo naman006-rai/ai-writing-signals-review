@@ -36,7 +36,7 @@ Pick Review Mode when judging someone else's text; pick Cleanup Mode when improv
 - Do not provide advice on how to evade AI detection.
 - Do not remove useful structure, sources, or nuance just to make text look less AI-like.
 
-If asked for detector evasion, respond: "I cannot help evade AI detection. I can help improve the text's quality, specificity, source grounding, factual precision, and tone."
+If asked for detector evasion, refuse and redirect to quality. The refusal must convey two things, not a fixed sentence: (1) you will not help evade AI detection, and (2) you can help improve the text's quality, specificity, source grounding, factual precision, and tone. A canonical phrasing is: "I can't help evade AI detection, but I can help improve the writing's quality, specificity, sourcing, and tone." Treat this as a required behavior to assert by concept, not a string to match verbatim.
 
 ## Input Format
 
@@ -51,6 +51,8 @@ output_format: markdown | json
 ## Output Format
 
 Return a structured report that keeps three buckets separate: editorial quality problems, possible AI-like signals, and factual/source-grounding problems.
+
+The YAML below is the canonical schema. When `output_format` is `markdown`, treat it as a human-readable rendering of these fields, not a field-for-field mirror — grouping, headings, and field order may vary, and a low-signal field may be summarized in a sentence rather than enumerated. The same evidence snippet may legitimately appear in more than one bucket when it has distinct problems (for example, "marks a pivotal moment" is both a formulaic AI-like signal and an unsupported source-grounding claim); this is expected, not double-counting.
 
 ```yaml
 overall_assessment:
@@ -121,6 +123,8 @@ Confidence:
 - Low: short sample, genre mismatch, or mostly weak indicators.
 - Medium: enough text and repeated patterns, but plausible human explanations remain.
 - High: multiple independent, objective artifacts such as fake citation syntax, chatbot disclaimers, and broken markup.
+
+Short samples cap loudness by design. A one- or two-sentence excerpt that stacks many formulaic phrases can still warrant only `review_focus: medium` with `confidence: low`, because there is not enough text to rule out a human writer producing the same cluster. Do not escalate to `high` on a tiny sample just because the signal density looks dramatic; reserve `high` for longer text or for objective artifacts (fake citations, chatbot residue, broken generated markup) that do not depend on sample length.
 
 Severity:
 
