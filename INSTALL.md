@@ -50,7 +50,23 @@ python scripts/validate_skill.py
 
 `SKILL.md` already carries the Agent Skill frontmatter (`name` and `description`), so the folder is drop-in for tools that load skills from a skills directory.
 
-Run these commands from the directory that contains the cloned repo:
+Option 2 leaves you inside the repo, so both starting points are covered.
+
+From inside the cloned repo:
+
+```powershell
+# Windows (PowerShell)
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills" | Out-Null
+Copy-Item -Recurse . "$env:USERPROFILE\.claude\skills\ai-writing-signals-review"
+```
+
+```bash
+# macOS / Linux
+mkdir -p ~/.claude/skills
+cp -r . ~/.claude/skills/ai-writing-signals-review
+```
+
+From the parent directory that contains the repo folder:
 
 ```powershell
 # Windows (PowerShell)
@@ -69,8 +85,8 @@ Reload your client and invoke the skill by name (`ai-writing-signals-review`).
 These are for contributors verifying the package, not for end users.
 
 ```bash
-python scripts/validate_skill.py   # structure, JSON, safety contract, attribution, tests
-python -m pytest                   # falls back to a built-in harness if pytest is absent
+python scripts/validate_skill.py   # structure, JSON, safety contract, attribution; runs the built-in test harness, or pytest if it is installed
+python -m pytest                   # optional; only works if pytest is installed (the validator above is the one that falls back)
 ```
 
 ## License
