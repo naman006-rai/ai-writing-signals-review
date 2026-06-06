@@ -50,14 +50,16 @@ python scripts/validate_skill.py
 
 `SKILL.md` already carries the Agent Skill frontmatter (`name` and `description`), so the folder is drop-in for tools that load skills from a skills directory.
 
+Run these commands from the directory that contains the cloned repo:
+
 ```powershell
 # Windows (PowerShell)
-Copy-Item -Recurse .\ai-writing-signals-skill "$env:USERPROFILE\.claude\skills\ai-writing-signals-review"
+Copy-Item -Recurse .\ai-writing-signals-review "$env:USERPROFILE\.claude\skills\ai-writing-signals-review"
 ```
 
 ```bash
 # macOS / Linux
-cp -r ai-writing-signals-skill ~/.claude/skills/ai-writing-signals-review
+cp -r ai-writing-signals-review ~/.claude/skills/ai-writing-signals-review
 ```
 
 Reload your client and invoke the skill by name (`ai-writing-signals-review`).
@@ -73,4 +75,4 @@ python -m pytest                   # falls back to a built-in harness if pytest 
 
 ## License
 
-The documentation, prompts, rubrics, and examples are licensed under CC BY-SA 4.0. See `LICENSE` and `LICENSE-NOTES.md`, and keep the attribution in `README.md` and `SKILL.md` when you redistribute.
+The documentation, prompts, rubrics, and examples are licensed under CC BY-SA 4.0. See `LICENSE` and `NOTICE.md`, and keep the attribution in `README.md` and `SKILL.md` when you redistribute.

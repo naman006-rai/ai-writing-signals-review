@@ -23,7 +23,7 @@ Both modes keep the same rule: nothing here is proof of AI authorship, and none 
 ## Package Layout
 
 ```text
-ai-writing-signals-skill/
+ai-writing-signals-review/
   README.md
   SKILL.md
   skill.json
@@ -146,7 +146,7 @@ This package mixes material with two origins (see Attribution above):
 - **Adapted prose and rubrics** derive from Wikipedia's CC BY-SA 4.0 page. CC BY-SA 4.0 is a ShareAlike license, so derivative text normally must stay under CC BY-SA 4.0. Treat the adapted content here as **CC BY-SA 4.0** and keep the attribution above when you redistribute it.
 - **Prose Cleanup Mode ideas** were reworded from the MIT-licensed Stop Slop skill; MIT permits this reuse.
 
-The top-level `LICENSE` and `LICENSE-NOTES.md` files record the repository license and attribution notes.
+The top-level `LICENSE` and `NOTICE.md` files record the repository license and attribution notes.
 
 ## Dogfooding
 
