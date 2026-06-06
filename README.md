@@ -146,7 +146,7 @@ This package mixes material with two origins (see Attribution above):
 - **Adapted prose and rubrics** derive from Wikipedia's CC BY-SA 4.0 page. CC BY-SA 4.0 is a ShareAlike license, so derivative text normally must stay under CC BY-SA 4.0. Treat the adapted content here as **CC BY-SA 4.0** and keep the attribution above when you redistribute it.
 - **Prose Cleanup Mode ideas** were reworded from the MIT-licensed Stop Slop skill; MIT permits this reuse.
 
-Before publishing, add a top-level `LICENSE` file that records this. The license choice carries legal weight and is the maintainer's to finalize; this note states the ShareAlike implication rather than overriding it.
+The top-level `LICENSE` and `LICENSE-NOTES.md` files record the repository license and attribution notes.
 
 ## Dogfooding
 
